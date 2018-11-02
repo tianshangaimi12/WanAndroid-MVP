@@ -1,4 +1,4 @@
-package com.aimi.wanandroid_mvp.Entity;
+package com.aimi.wanandroid_mvp.entity;
 
 public class BaseEntity<T> {
     private int errorCode;

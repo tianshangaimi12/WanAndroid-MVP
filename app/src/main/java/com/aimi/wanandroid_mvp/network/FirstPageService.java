@@ -1,7 +1,7 @@
 package com.aimi.wanandroid_mvp.network;
 
-import com.aimi.wanandroid_mvp.Entity.ArticleEntity;
-import com.aimi.wanandroid_mvp.Entity.BaseEntity;
+import com.aimi.wanandroid_mvp.entity.ArticleEntity;
+import com.aimi.wanandroid_mvp.entity.BaseEntity;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;
