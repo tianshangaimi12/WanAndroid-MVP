@@ -1,12 +1,16 @@
 package com.aimi.wanandroid_mvp.view;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.BottomNavigationView;
 
 import com.aimi.wanandroid_mvp.R;
 import com.aimi.wanandroid_mvp.base.RxBaseActivity;
 
+import butterknife.BindView;
+
 public class MainActivity extends RxBaseActivity {
+    @BindView(R.id.bottom_navigation_view)
+    BottomNavigationView mBottomNavigationView;
 
     @Override
     protected int getLayoutId() {
@@ -20,21 +24,7 @@ public class MainActivity extends RxBaseActivity {
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-
+        mBottomNavigationView.setLabelVisibilityMode(1);
     }
 
-    @Override
-    public void showProgress() {
-
-    }
-
-    @Override
-    public void hideProgress() {
-
-    }
-
-    @Override
-    public void showToast(String msg) {
-
-    }
 }

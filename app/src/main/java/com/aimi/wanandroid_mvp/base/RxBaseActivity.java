@@ -10,7 +10,7 @@ import butterknife.Unbinder;
 
 public abstract class RxBaseActivity<T extends IBasePresenter> extends RxAppCompatActivity implements IBaseView {
     private Unbinder binder;
-    private T presenter;
+    public T presenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -19,9 +19,6 @@ public abstract class RxBaseActivity<T extends IBasePresenter> extends RxAppComp
         binder = ButterKnife.bind(this);
         initView(savedInstanceState);
         initToolBar();
-        if (presenter != null) {
-            presenter.attachView(this);
-        }
     }
 
 
@@ -29,7 +26,7 @@ public abstract class RxBaseActivity<T extends IBasePresenter> extends RxAppComp
     protected void onDestroy() {
         super.onDestroy();
         binder.unbind();
-        if (presenter != null) {
+        if (presenter != null){
             presenter.detachView();
             presenter = null;
         }

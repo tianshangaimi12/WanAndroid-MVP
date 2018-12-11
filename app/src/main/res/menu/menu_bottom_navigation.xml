@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_first_page"
+        android:title="@string/menu_first_page"
+        app:showAsAction="always"
+        android:icon="@mipmap/icon_home_pager_not_selected"/>
+    <item
+        android:id="@+id/menu_knowledge"
+        android:title="@string/menu_knowledge"
+        app:showAsAction="ifRoom"
+        android:icon="@mipmap/icon_knowledge_hierarchy_not_selected"/>
+    <item
+        android:id="@+id/menu_navigation"
+        app:showAsAction="ifRoom"
+        android:title="@string/menu_navigation"
+        android:icon="@mipmap/icon_navigation_not_selected"/>
+    <item
+        android:id="@+id/menu_project"
+        app:showAsAction="ifRoom"
+        android:title="@string/menu_project"
+        android:icon="@mipmap/icon_project_not_selected"/>
+</menu>
