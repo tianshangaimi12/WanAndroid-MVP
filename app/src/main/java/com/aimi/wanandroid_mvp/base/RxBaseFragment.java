@@ -19,7 +19,6 @@ public abstract class RxBaseFragment<T extends IBasePresenter> extends RxFragmen
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(getLayoutId(), container, false);
-        initView(savedInstanceState);
         return view;
     }
 
@@ -27,6 +26,7 @@ public abstract class RxBaseFragment<T extends IBasePresenter> extends RxFragmen
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binder = ButterKnife.bind(this, view);
+        initView(savedInstanceState);
     }
 
     @Override

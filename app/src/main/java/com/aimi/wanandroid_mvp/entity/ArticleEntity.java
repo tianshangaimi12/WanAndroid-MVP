@@ -83,7 +83,7 @@ public class ArticleEntity {
         private String niceDate;
         private String origin;
         private String projectLink;
-        private int publishTime;
+        private String publishTime;
         private int superChapterId;
         private String superChapterName;
         private List<Tag> tags;
@@ -205,11 +205,11 @@ public class ArticleEntity {
             this.projectLink = projectLink;
         }
 
-        public int getPublishTime() {
+        public String getPublishTime() {
             return publishTime;
         }
 
-        public void setPublishTime(int publishTime) {
+        public void setPublishTime(String publishTime) {
             this.publishTime = publishTime;
         }
 

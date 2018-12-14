@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#0cdccb</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="first_page_pager_index_back">#aaaaaa</color>
+    <color name="first_page_pager_index_back">#55aaaaaa</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorDark">#000000</color>
+    <color name="colorMediumGray">#7d7d7d</color>
     <color name="colorSplash">#ffe200</color>
     <color name="navigationYellow">#f39c12</color>
     <color name="navigationGray">#cccccc</color>
+    <color name="colorBlue">#3e95ec</color>
 </resources>

@@ -3,6 +3,7 @@ package com.aimi.wanandroid_mvp.view;
 import android.animation.Animator;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.aimi.wanandroid_mvp.R;
 import com.aimi.wanandroid_mvp.base.RxBaseActivity;
@@ -67,5 +68,10 @@ public class SplashActivity extends RxBaseActivity<SplashContract.Presenter> imp
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

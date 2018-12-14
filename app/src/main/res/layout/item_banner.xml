@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager_first_page"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_180"
+        android:layout_margin="@dimen/dp_10" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/view_pager_first_page"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:background="@color/first_page_pager_index_back"
+        android:padding="@dimen/dp_10">
+
+        <TextView
+            android:id="@+id/tv_banner_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/sp_16" />
+
+        <TextView
+            android:id="@+id/tv_banner_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/sp_16" />
+    </RelativeLayout>
+</RelativeLayout>
