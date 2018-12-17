@@ -1,5 +1,6 @@
 package com.aimi.wanandroid_mvp.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class ArticleEntity {
@@ -68,7 +69,7 @@ public class ArticleEntity {
         this.size = size;
     }
 
-    public static class ArticleBean {
+    public static class ArticleBean implements Serializable{
         private String apkLink;
         private String author;
         private int chapterId;
@@ -278,7 +279,7 @@ public class ArticleEntity {
         }
     }
 
-    public static class Tag {
+    public static class Tag implements Serializable{
         private String name;
         private String url;
 

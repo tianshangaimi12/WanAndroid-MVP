@@ -10,15 +10,16 @@ import android.widget.ImageView;
 
 import com.aimi.wanandroid_mvp.R;
 import com.aimi.wanandroid_mvp.entity.BannerBean;
+import com.aimi.wanandroid_mvp.view.WebActivity;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class BannerAdapter extends PagerAdapter{
+public class BannerAdapter extends PagerAdapter {
     private Context context;
     private List<BannerBean> bannerBeans;
 
-    public BannerAdapter(Context context, List<BannerBean> bannerBeans){
+    public BannerAdapter(Context context, List<BannerBean> bannerBeans) {
         this.context = context;
         this.bannerBeans = bannerBeans;
     }
@@ -40,6 +41,7 @@ public class BannerAdapter extends PagerAdapter{
         ImageView img = view.findViewById(R.id.img_banner);
         Glide.with(context).load(bannerBeans.get(position).getImagePath()).into(img);
         container.addView(view);
+        view.setOnClickListener(v -> WebActivity.launch(context, bannerBeans.get(position)));
         return view;
     }
 

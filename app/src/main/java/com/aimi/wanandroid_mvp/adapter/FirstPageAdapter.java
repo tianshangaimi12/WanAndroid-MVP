@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.aimi.wanandroid_mvp.R;
 import com.aimi.wanandroid_mvp.entity.ArticleEntity;
 import com.aimi.wanandroid_mvp.entity.BannerBean;
+import com.aimi.wanandroid_mvp.view.WebActivity;
 
 import java.util.List;
 
@@ -134,6 +135,7 @@ public class FirstPageAdapter extends RecyclerView.Adapter {
             } else {
                 holder.mBtnProject.setVisibility(View.VISIBLE);
             }
+            holder.itemView.setOnClickListener(v -> WebActivity.launch(context, articleBean));
         }
     }
 

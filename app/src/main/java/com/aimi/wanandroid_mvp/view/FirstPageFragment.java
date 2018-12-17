@@ -3,7 +3,6 @@ package com.aimi.wanandroid_mvp.view;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.widget.Toast;
 
 import com.aimi.wanandroid_mvp.R;
@@ -19,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 public class FirstPageFragment extends RxBaseFragment<FirstPagePresenter> implements FirstPageContract.View {
     @BindView(R.id.rv_first_page)

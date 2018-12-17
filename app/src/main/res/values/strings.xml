@@ -12,4 +12,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="useful_sites">useful_sites</string>
     <string name="search">search</string>
+    <string name="share">分享</string>
+    <string name="go_eng">GO</string>
+    <string name="share_content">WanAndroid分享：%s，%s。</string>
+    <string name="share_to_friends">分享给朋友</string>
 </resources>

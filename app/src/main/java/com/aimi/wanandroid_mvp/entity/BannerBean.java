@@ -1,12 +1,23 @@
 package com.aimi.wanandroid_mvp.entity;
 
-public class BannerBean {
+import java.io.Serializable;
+
+public class BannerBean implements Serializable{
     private int id;
     private String desc;
     private int type;
     private int isVisible;
     private String title;
     private String imagePath;
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public String getImagePath() {
         return imagePath;
