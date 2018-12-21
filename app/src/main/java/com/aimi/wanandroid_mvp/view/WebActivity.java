@@ -14,6 +14,7 @@ import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.aimi.wanandroid_mvp.R;
 import com.aimi.wanandroid_mvp.base.RxBaseActivity;
@@ -132,6 +133,11 @@ public class WebActivity extends RxBaseActivity<WebPresenter> implements WebCont
     @Override
     public void showToast(String message) {
 
+    }
+
+    @Override
+    public void showToast(int resId) {
+        Toast.makeText(this, resId, Toast.LENGTH_SHORT).show();
     }
 
     @Override

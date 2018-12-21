@@ -5,6 +5,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.aimi.wanandroid_mvp.network.FirstPageService;
+import com.aimi.wanandroid_mvp.network.TreeService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -40,6 +41,10 @@ public class RetrofitUtils {
 
     public static FirstPageService getFirstPageApi(){
         return retrofitUtils.createApi(FirstPageService.class, BASE_URL);
+    }
+
+    public static TreeService getTreeApi(){
+        return retrofitUtils.createApi(TreeService.class, BASE_URL);
     }
 
     /**

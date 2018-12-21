@@ -84,6 +84,11 @@ public class FirstPageFragment extends RxBaseFragment<FirstPagePresenter> implem
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void showToast(int resId) {
+        Toast.makeText(getContext(), resId, Toast.LENGTH_SHORT).show();
+    }
+
     public void scrollToFirst(){
         int firstCompletelyPosition = lm.findFirstCompletelyVisibleItemPosition();
         if (firstCompletelyPosition != 0){

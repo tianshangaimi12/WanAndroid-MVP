@@ -1,5 +1,6 @@
 package com.aimi.wanandroid_mvp.presenter;
 
+import com.aimi.wanandroid_mvp.R;
 import com.aimi.wanandroid_mvp.contract.FirstPageContract;
 import com.aimi.wanandroid_mvp.utils.RetrofitUtils;
 import com.trello.rxlifecycle.components.support.RxFragment;
@@ -27,7 +28,7 @@ public class FirstPagePresenter implements FirstPageContract.Presenter{
                     } else {
                         view.showToast(bannerEntityBaseEntity.getErrorMsg());
                     }
-                }, throwable -> view.showToast(throwable.getMessage()));
+                }, throwable -> view.showToast(R.string.load_failed));
     }
 
     @Override

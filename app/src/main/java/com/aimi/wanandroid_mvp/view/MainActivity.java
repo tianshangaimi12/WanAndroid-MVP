@@ -55,7 +55,7 @@ public class MainActivity extends RxBaseActivity {
         mTvTitle.setText(R.string.menu_first_page);
         setSupportActionBar(mToolbar);
         mToolbar.setNavigationOnClickListener(v -> {
-            mDrawerLayout.openDrawer(Gravity.LEFT);
+            mDrawerLayout.openDrawer(Gravity.START);
         });
     }
 
@@ -187,6 +187,11 @@ public class MainActivity extends RxBaseActivity {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void showToast(int resId) {
+        Toast.makeText(this, resId, Toast.LENGTH_SHORT).show();
+    }
+
     @OnClick(R.id.float_btn_up)
     public void onClick(View view){
         switch (view.getId()){
@@ -194,6 +199,9 @@ public class MainActivity extends RxBaseActivity {
                 switch (page){
                     case PAGE_FIRST_PAGE:
                         mFirstPageFragment.scrollToFirst();
+                        break;
+                    case PAGE_KNOWLEDGE:
+                        mKnowledgeFragment.scrollToFirst();;
                         break;
                 }
                 break;
