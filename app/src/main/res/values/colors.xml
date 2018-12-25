@@ -12,4 +12,5 @@
     <color name="navigationGray">#cccccc</color>
     <color name="colorBlue">#3e95ec</color>
     <color name="colorMediumRed">#f5abbe</color>
+    <color name="colorMediumPrimary">#add2cf</color>
 </resources>

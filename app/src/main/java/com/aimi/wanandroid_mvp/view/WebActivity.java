@@ -141,6 +141,16 @@ public class WebActivity extends RxBaseActivity<WebPresenter> implements WebCont
     }
 
     @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
+    }
+
+    @Override
     public void showWebPage(String url) {
         mWebView.loadUrl(url);
     }

@@ -9,9 +9,7 @@
         android:id="@+id/anim_splash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerInParent="true" />
 
     <TextView
         android:id="@+id/tv_app_name"

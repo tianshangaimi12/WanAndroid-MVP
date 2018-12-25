@@ -1,0 +1,54 @@
+[33mcommit 48080551e1716ef34a1394422cc55cd150fe14c1[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: ZhangChong <731411677@qq.com>
+Date:   Mon Dec 17 17:35:38 2018 +0800
+
+    完成web页面
+
+[33mcommit f7a5b4ba3a6ad93cb27cbebe4b90517ac1a64edd[m
+Merge: d9568ec 1e04e60
+Author: ZhangChong <731411677@qq.com>
+Date:   Fri Dec 14 17:32:43 2018 +0800
+
+    Merge branch 'master' of https://github.com/tianshangaimi12/WanAndroid-MVP
+
+[33mcommit d9568ecab49d28e6e211fa38794b51547558eaae[m
+Author: ZhangChong <731411677@qq.com>
+Date:   Fri Dec 14 17:29:43 2018 +0800
+
+    ，添加列表刷新，完善首页内容
+
+[33mcommit 1e04e60efc3a96079117091e5218d26c760f61f0[m
+Author: 张冲 <731411677@qq.com>
+Date:   Tue Dec 11 17:21:35 2018 +0800
+
+    Update README.md
+
+[33mcommit 3cf3ca0aa82a1a3a8917deb9456e98202e317772[m
+Author: ZhangChong <731411677@qq.com>
+Date:   Tue Dec 11 17:19:37 2018 +0800
+
+    添加fragment切换
+
+[33mcommit 86b0ff9ca384105084645d2074d4062a86ea3d94[m
+Author: ZhangChong <731411677@qq.com>
+Date:   Tue Dec 11 16:05:26 2018 +0800
+
+    优化mvp架构，添加BottomNavigation
+
+[33mcommit 7b494505aa1d2ec702a99c70d9dca5b8d1d1c0d8[m
+Author: ZhangChong <731411677@qq.com>
+Date:   Fri Nov 2 10:11:55 2018 +0800
+
+    没时间了
+
+[33mcommit eba148ada6d94f408b01b2cc87d704daa52dbadd[m
+Author: ZhangChong <731411677@qq.com>
+Date:   Thu Nov 1 11:29:40 2018 +0800
+
+    第一次提交
+
+[33mcommit 0f09c374987a50ae9f4fc2cced9e21f187f5bf14[m
+Author: 张冲 <731411677@qq.com>
+Date:   Thu Nov 1 11:03:45 2018 +0800
+
+    Initial commit

@@ -192,6 +192,16 @@ public class MainActivity extends RxBaseActivity {
         Toast.makeText(this, resId, Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
+    }
+
     @OnClick(R.id.float_btn_up)
     public void onClick(View view){
         switch (view.getId()){

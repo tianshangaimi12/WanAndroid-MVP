@@ -23,10 +23,15 @@ import butterknife.ButterKnife;
 public class KnowledgeTreeAdapter extends RecyclerView.Adapter<KnowledgeTreeAdapter.TreeHolder> {
     private Context context;
     private List<TreeBean> treeBeans;
+    private OnItemClickListener onItemClickListener;
 
     public KnowledgeTreeAdapter(Context context, List<TreeBean> treeBeans){
         this.context = context;
         this.treeBeans = treeBeans;
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener){
+        this.onItemClickListener = onItemClickListener;
     }
 
     @NonNull
@@ -53,6 +58,11 @@ public class KnowledgeTreeAdapter extends RecyclerView.Adapter<KnowledgeTreeAdap
             tv.setPadding(0, 0, DisplayUtils.dp2Px(context, 5), DisplayUtils.dp2Px(context, 5));
             treeHolder.mLayoutTags.addView(tv);
         }
+        treeHolder.itemView.setOnClickListener(v -> {
+            if (onItemClickListener != null){
+                onItemClickListener.onClick(i);
+            }
+        });
     }
 
     @Override
@@ -70,5 +80,9 @@ public class KnowledgeTreeAdapter extends RecyclerView.Adapter<KnowledgeTreeAdap
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
+    }
+
+    public interface OnItemClickListener{
+        void onClick(int position);
     }
 }

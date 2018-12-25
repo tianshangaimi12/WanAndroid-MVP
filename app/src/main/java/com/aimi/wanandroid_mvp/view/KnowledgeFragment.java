@@ -17,7 +17,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class KnowledgeFragment extends RxBaseFragment<KnowledgePresenter> implements KnowledgeContract.View{
+public class KnowledgeFragment extends RxBaseFragment<KnowledgePresenter> implements KnowledgeContract.View {
     @BindView(R.id.rv_knowledge)
     RecyclerView mRecyclerView;
 
@@ -39,6 +39,7 @@ public class KnowledgeFragment extends RxBaseFragment<KnowledgePresenter> implem
         mRecyclerView.setAdapter(mAdapter);
         presenter = new KnowledgePresenter(this);
         presenter.getKnowledgeTree(this);
+        mAdapter.setOnItemClickListener(position -> SystemArticleActivity.launch(getContext(), mTreeBeans.get(position)));
     }
 
     @Override
@@ -57,9 +58,19 @@ public class KnowledgeFragment extends RxBaseFragment<KnowledgePresenter> implem
         Toast.makeText(getContext(), resId, Toast.LENGTH_SHORT).show();
     }
 
-    public void scrollToFirst(){
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
+    }
+
+    public void scrollToFirst() {
         int firstCompletelyPosition = lm.findFirstCompletelyVisibleItemPosition();
-        if (firstCompletelyPosition != 0){
+        if (firstCompletelyPosition != 0) {
             mRecyclerView.smoothScrollToPosition(0);
         }
     }

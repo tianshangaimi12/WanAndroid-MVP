@@ -16,5 +16,5 @@ public interface TreeService {
     Observable<BaseEntity<List<TreeBean>>> getSystemTree();
 
     @GET("article/list/{page}/json")
-    Observable<BaseEntity<ArticleEntity>> getTreeNodeArticle(@Query("cid")int cid, @Path("page")int page);
+    Observable<BaseEntity<ArticleEntity>> getTreeNodeArticle(@Path("page")int page, @Query("cid")int cid);
 }

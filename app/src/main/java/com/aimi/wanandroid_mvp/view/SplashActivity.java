@@ -79,4 +79,14 @@ public class SplashActivity extends RxBaseActivity<SplashContract.Presenter> imp
     public void showToast(int resId) {
         Toast.makeText(this, resId, Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
+    }
 }
