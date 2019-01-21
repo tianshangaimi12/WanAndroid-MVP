@@ -5,6 +5,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.aimi.wanandroid_mvp.network.FirstPageService;
+import com.aimi.wanandroid_mvp.network.NavigationService;
 import com.aimi.wanandroid_mvp.network.TreeService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -31,7 +32,7 @@ public class RetrofitUtils {
     private static OkHttpClient okHttpClient;
     private static RetrofitUtils retrofitUtils;
 
-    private static final String BASE_URL = "http://www.wanandroid.com";
+    private static final String BASE_URL = "http://www.wanandroid.com/";
 
     public static void init(Application application) {
         context = application;
@@ -45,6 +46,10 @@ public class RetrofitUtils {
 
     public static TreeService getTreeApi(){
         return retrofitUtils.createApi(TreeService.class, BASE_URL);
+    }
+
+    public static NavigationService getNavigationApi(){
+        return retrofitUtils.createApi(NavigationService.class, BASE_URL);
     }
 
     /**

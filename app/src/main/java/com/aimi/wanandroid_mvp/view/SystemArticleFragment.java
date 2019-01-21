@@ -121,6 +121,7 @@ public class SystemArticleFragment extends RxBaseFragment<SystemArticlePresenter
 
     @Override
     public void showLoading() {
+        mFloatingButton.hide();
         mRefreshLayout.setVisibility(View.INVISIBLE);
         mLoading.setVisibility(View.VISIBLE);
         mLoading.setAnimation("stopwatch.json");
@@ -131,6 +132,9 @@ public class SystemArticleFragment extends RxBaseFragment<SystemArticlePresenter
     public void hideLoading() {
         if (mRefreshLayout != null){
             mRefreshLayout.setVisibility(View.VISIBLE);
+        }
+        if (mFloatingButton != null){
+            mFloatingButton.show();
         }
         if (mLoading != null){
             mLoading.setVisibility(View.INVISIBLE);

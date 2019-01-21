@@ -7,7 +7,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.2'
+        classpath 'com.android.tools.build:gradle:3.3.0'
         //这里配置 apt 供butterknife使用
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         

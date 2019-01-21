@@ -7,11 +7,38 @@ public class ArticleEntity {
 
     private int curPage;
     private List<ArticleBean> datas;
+    private List<ArticleBean> articles;
     private int offset;
     private boolean over;
     private int pageCount;
     private int total;
     private int size;
+    private int cid;
+    private String name;
+
+    public List<ArticleBean> getArticles() {
+        return articles;
+    }
+
+    public void setArticles(List<ArticleBean> articles) {
+        this.articles = articles;
+    }
+
+    public int getCid() {
+        return cid;
+    }
+
+    public void setCid(int cid) {
+        this.cid = cid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getCurPage() {
         return curPage;
