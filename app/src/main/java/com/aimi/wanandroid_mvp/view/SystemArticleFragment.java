@@ -33,7 +33,7 @@ public class SystemArticleFragment extends RxBaseFragment<SystemArticlePresenter
     SmartRefreshLayout mRefreshLayout;
     @BindView(R.id.float_btn_up)
     FloatingActionButton mFloatingButton;
-    @BindView(R.id.anim_system_article_loading)
+    @BindView(R.id.anim_loading)
     LottieAnimationView mLoading;
 
     private int cid;

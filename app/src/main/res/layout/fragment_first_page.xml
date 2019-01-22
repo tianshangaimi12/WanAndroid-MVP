@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
+
     <View
+        android:id="@+id/view_first_page_line"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_1"
-        android:background="@color/colorWhite"/>
+        android:background="@color/colorWhite" />
+
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/smart_refresh_layout_first_page"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/view_first_page_line"
         app:srlAccentColor="@color/colorWhite"
         app:srlEnablePreviewInEditMode="true"
         app:srlPrimaryColor="@color/colorPrimary">
@@ -31,4 +34,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
-</LinearLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/anim_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:visibility="invisible"
+        app:lottie_loop="true" />
+</RelativeLayout>

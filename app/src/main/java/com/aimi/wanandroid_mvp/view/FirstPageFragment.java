@@ -3,6 +3,7 @@ package com.aimi.wanandroid_mvp.view;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.Toast;
 
 import com.aimi.wanandroid_mvp.R;
@@ -12,6 +13,7 @@ import com.aimi.wanandroid_mvp.contract.FirstPageContract;
 import com.aimi.wanandroid_mvp.entity.ArticleEntity;
 import com.aimi.wanandroid_mvp.entity.BannerBean;
 import com.aimi.wanandroid_mvp.presenter.FirstPagePresenter;
+import com.airbnb.lottie.LottieAnimationView;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import java.util.ArrayList;
@@ -24,6 +26,8 @@ public class FirstPageFragment extends RxBaseFragment<FirstPagePresenter> implem
     RecyclerView mRecyclerView;
     @BindView(R.id.smart_refresh_layout_first_page)
     SmartRefreshLayout mRefreshLayout;
+    @BindView(R.id.anim_loading)
+    LottieAnimationView mLoading;
 
     private int page = 0;
     private FirstPageAdapter mAdapter;
@@ -91,12 +95,17 @@ public class FirstPageFragment extends RxBaseFragment<FirstPagePresenter> implem
 
     @Override
     public void showLoading() {
-
+        mLoading.setVisibility(View.VISIBLE);
+        mLoading.setAnimation("stopwatch.json");
+        mLoading.playAnimation();
     }
 
     @Override
     public void hideLoading() {
-
+        if (mLoading != null){
+            mLoading.setVisibility(View.INVISIBLE);
+            mLoading.cancelAnimation();
+        }
     }
 
     public void scrollToFirst(){

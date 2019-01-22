@@ -37,7 +37,7 @@
         android:src="@mipmap/icon_up_arrow" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/anim_system_article_loading"
+        android:id="@+id/anim_loading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"

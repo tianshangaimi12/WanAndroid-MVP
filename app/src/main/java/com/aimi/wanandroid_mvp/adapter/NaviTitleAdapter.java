@@ -45,15 +45,20 @@ public class NaviTitleAdapter extends RecyclerView.Adapter<NaviTitleAdapter.Titl
     @Override
     public void onBindViewHolder(@NonNull TitleViewHolder titleViewHolder, int i) {
         ArticleEntity entity = articleEntities.get(i);
-        titleViewHolder.itemView.setBackgroundColor(context.getResources().getColor(R.color.navigationGray));
         titleViewHolder.mTvTitle.setText(entity.getName());
         titleViewHolder.mTvTitle.setOnClickListener(v -> {
             if (onItemClickListener != null) {
                 onItemClickListener.onClick(i);
-                titleViewHolder.itemView.setBackgroundColor(Color.WHITE);
-                titleViewHolder.mTvTitle.setTextColor(context.getResources().getColor(R.color.colorPrimary));
             }
         });
+        if (entity.isSelect()){
+            titleViewHolder.itemView.setBackgroundColor(Color.WHITE);
+            titleViewHolder.mTvTitle.setTextColor(context.getResources().getColor(R.color.colorPrimary));
+        } else {
+            titleViewHolder.mTvTitle.setTextColor(context.getResources().getColor(R.color.colorMediumGray));
+            titleViewHolder.itemView.setBackgroundColor(context.getResources().getColor(R.color.navigationGray));
+
+        }
     }
 
     @Override

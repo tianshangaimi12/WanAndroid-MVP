@@ -22,13 +22,18 @@ public class KnowledgePresenter implements KnowledgeContract.Presenter {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .compose(rxFragment.bindToLifecycle())
+                .doOnSubscribe(() -> view.showLoading())
                 .subscribe(listBaseEntity -> {
+                    view.hideLoading();
                     if (listBaseEntity.getErrorCode() == 0) {
                         view.setView(listBaseEntity.getData());
                     } else {
                         view.showToast(listBaseEntity.getErrorMsg());
                     }
-                }, throwable -> view.showToast(R.string.load_failed));
+                }, throwable -> {
+                    view.hideLoading();
+                    view.showToast(R.string.load_failed);
+                });
     }
 
     @Override

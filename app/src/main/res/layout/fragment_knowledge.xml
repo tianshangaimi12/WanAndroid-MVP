@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.KnowledgeFragment"
-    android:background="@color/colorWhite">
+    android:background="@color/colorWhite"
+    tools:context=".view.KnowledgeFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_knowledge"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/anim_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:visibility="invisible"
+        app:lottie_loop="true" />
 </FrameLayout>

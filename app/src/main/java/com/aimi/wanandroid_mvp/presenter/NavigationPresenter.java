@@ -6,6 +6,7 @@ import com.aimi.wanandroid_mvp.utils.RetrofitUtils;
 import com.trello.rxlifecycle.components.support.RxFragment;
 
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action0;
 import rx.schedulers.Schedulers;
 
 public class NavigationPresenter implements NavigationContract.Presenter {
@@ -23,13 +24,18 @@ public class NavigationPresenter implements NavigationContract.Presenter {
                 .compose(rxFragment.bindToLifecycle())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe(() -> view.showLoading())
                 .subscribe(listBaseEntity -> {
+                    view.hideLoading();
                     if (listBaseEntity.getErrorCode() == 0) {
                         view.setView(listBaseEntity.getData());
                     } else {
                         view.showToast(listBaseEntity.getErrorMsg());
                     }
-                }, throwable -> view.showToast(R.string.load_failed));
+                }, throwable -> {
+                    view.hideLoading();
+                    view.showToast(R.string.load_failed);
+                });
     }
 
     @Override

@@ -21,6 +21,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_navigation_detail_title"
         android:layout_marginStart="@dimen/dp_10"
-        app:itemSpacing="@dimen/dp_5"
-        app:lineSpacing="@dimen/dp_5" />
+        app:itemSpacing="@dimen/dp_8"
+        app:lineSpacing="@dimen/dp_7" />
 </RelativeLayout>

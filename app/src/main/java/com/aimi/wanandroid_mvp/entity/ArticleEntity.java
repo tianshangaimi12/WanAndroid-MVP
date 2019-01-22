@@ -15,6 +15,15 @@ public class ArticleEntity {
     private int size;
     private int cid;
     private String name;
+    private boolean select;
+
+    public boolean isSelect() {
+        return select;
+    }
+
+    public void setSelect(boolean select) {
+        this.select = select;
+    }
 
     public List<ArticleBean> getArticles() {
         return articles;

@@ -8,11 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.aimi.wanandroid_mvp.R;
 import com.aimi.wanandroid_mvp.entity.ArticleEntity;
 import com.aimi.wanandroid_mvp.utils.ConstantUtils;
+import com.aimi.wanandroid_mvp.utils.DisplayUtils;
 import com.aimi.wanandroid_mvp.view.WebActivity;
 
 import java.util.List;
@@ -42,15 +44,19 @@ public class NaviDetailAdapter extends RecyclerView.Adapter<NaviDetailAdapter.De
         ArticleEntity articleEntity = articleEntities.get(i);
         detailViewHolder.mTvTitle.setText(articleEntity.getName());
         List<ArticleEntity.ArticleBean> articleBeans = articleEntity.getArticles();
+        int padding = DisplayUtils.dp2Px(context, 5);
+        FlowLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(FlowLayout.LayoutParams.WRAP_CONTENT,
+                FlowLayout.LayoutParams.WRAP_CONTENT);
         for (ArticleEntity.ArticleBean articleBean : articleBeans) {
-            Button button = new Button(context);
-            button.setBackgroundResource(R.drawable.shape_navi_detail_item);
-            button.setText(articleBean.getTitle());
-            button.setTextSize(13);
+            TextView tv = new TextView(context);
+            tv.setBackgroundResource(R.drawable.shape_navi_detail_item);
+            tv.setText(articleBean.getTitle());
+            tv.setTextSize(13);
+            tv.setPadding(padding, padding, padding, padding);
             int randomNum = new Random().nextInt(7);
-            button.setTextColor(context.getResources().getColor(ConstantUtils.TREE_NODE_TITLE_COLORS.get(randomNum)));
-            button.setOnClickListener(v -> WebActivity.launch(context, articleBean));
-            detailViewHolder.mFlowLayout.addView(button);
+            tv.setTextColor(context.getResources().getColor(ConstantUtils.TREE_NODE_TITLE_COLORS.get(randomNum)));
+            tv.setOnClickListener(v -> WebActivity.launch(context, articleBean));
+            detailViewHolder.mFlowLayout.addView(tv, layoutParams);
         }
     }
 

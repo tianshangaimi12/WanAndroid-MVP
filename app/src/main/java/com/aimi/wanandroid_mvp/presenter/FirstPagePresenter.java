@@ -8,10 +8,10 @@ import com.trello.rxlifecycle.components.support.RxFragment;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class FirstPagePresenter implements FirstPageContract.Presenter{
+public class FirstPagePresenter implements FirstPageContract.Presenter {
     private FirstPageContract.View view;
 
-    public FirstPagePresenter(FirstPageContract.View view){
+    public FirstPagePresenter(FirstPageContract.View view) {
         this.view = view;
     }
 
@@ -22,13 +22,18 @@ public class FirstPagePresenter implements FirstPageContract.Presenter{
                 .compose(fragment.bindToLifecycle())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe(() -> view.showLoading())
                 .subscribe(bannerEntityBaseEntity -> {
-                    if (bannerEntityBaseEntity.getErrorCode() == 0){
+                    view.hideLoading();
+                    if (bannerEntityBaseEntity.getErrorCode() == 0) {
                         view.setBanner(bannerEntityBaseEntity.getData());
                     } else {
                         view.showToast(bannerEntityBaseEntity.getErrorMsg());
                     }
-                }, throwable -> view.showToast(R.string.load_failed));
+                }, throwable -> {
+                    view.hideLoading();
+                    view.showToast(R.string.load_failed);
+                });
     }
 
     @Override
@@ -39,7 +44,7 @@ public class FirstPagePresenter implements FirstPageContract.Presenter{
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(articleEntityBaseEntity -> {
-                    if (articleEntityBaseEntity.getErrorCode() == 0){
+                    if (articleEntityBaseEntity.getErrorCode() == 0) {
                         view.addArticles(articleEntityBaseEntity.getData());
                     } else {
                         view.showToast(articleEntityBaseEntity.getErrorMsg());
