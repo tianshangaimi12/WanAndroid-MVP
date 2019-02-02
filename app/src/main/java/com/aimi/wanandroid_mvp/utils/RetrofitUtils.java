@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.aimi.wanandroid_mvp.network.FirstPageService;
 import com.aimi.wanandroid_mvp.network.NavigationService;
+import com.aimi.wanandroid_mvp.network.ProjectService;
 import com.aimi.wanandroid_mvp.network.TreeService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,6 +51,10 @@ public class RetrofitUtils {
 
     public static NavigationService getNavigationApi(){
         return retrofitUtils.createApi(NavigationService.class, BASE_URL);
+    }
+
+    public static ProjectService getProjectApi(){
+        return retrofitUtils.createApi(ProjectService.class, BASE_URL);
     }
 
     /**

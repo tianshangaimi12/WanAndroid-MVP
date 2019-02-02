@@ -7,6 +7,7 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorDark">#000000</color>
     <color name="colorMediumGray">#7d7d7d</color>
+    <color name="colorLightGray">#ABABAB</color>
     <color name="colorSplash">#ffe200</color>
     <color name="navigationYellow">#f39c12</color>
     <color name="navigationGray">#cccccc</color>
@@ -14,4 +15,5 @@
     <color name="colorMediumRed">#f5abbe</color>
     <color name="colorMediumPrimary">#add2cf</color>
     <color name="colorDetail">#449791</color>
+    <color name="colorOrange">#ECA945</color>
 </resources>

@@ -18,8 +18,7 @@ public abstract class RxBaseFragment<T extends IBasePresenter> extends RxFragmen
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(getLayoutId(), container, false);
-        return view;
+        return inflater.inflate(getLayoutId(), container, false);
     }
 
     @Override
