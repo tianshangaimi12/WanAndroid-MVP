@@ -8,8 +8,6 @@
     <string name="menu_first_page">首页</string>
     <string name="banner_index">%d/%d</string>
     <string name="article_category">%s/%s</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="useful_sites">useful_sites</string>
     <string name="search">search</string>
     <string name="share">分享</string>

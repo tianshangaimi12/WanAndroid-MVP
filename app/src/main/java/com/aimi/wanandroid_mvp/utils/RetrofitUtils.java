@@ -33,7 +33,7 @@ public class RetrofitUtils {
     private static OkHttpClient okHttpClient;
     private static RetrofitUtils retrofitUtils;
 
-    private static final String BASE_URL = "http://www.wanandroid.com/";
+    private static final String BASE_URL = "https://www.wanandroid.com/";
 
     public static void init(Application application) {
         context = application;
@@ -42,27 +42,27 @@ public class RetrofitUtils {
     }
 
     public static FirstPageService getFirstPageApi(){
-        return retrofitUtils.createApi(FirstPageService.class, BASE_URL);
+        return retrofitUtils.createApi(FirstPageService.class);
     }
 
     public static TreeService getTreeApi(){
-        return retrofitUtils.createApi(TreeService.class, BASE_URL);
+        return retrofitUtils.createApi(TreeService.class);
     }
 
     public static NavigationService getNavigationApi(){
-        return retrofitUtils.createApi(NavigationService.class, BASE_URL);
+        return retrofitUtils.createApi(NavigationService.class);
     }
 
     public static ProjectService getProjectApi(){
-        return retrofitUtils.createApi(ProjectService.class, BASE_URL);
+        return retrofitUtils.createApi(ProjectService.class);
     }
 
     /**
      * 根据传入的baseUrl，和api创建retrofit
      */
-    private <T> T createApi(Class<T> clazz, String baseUrl) {
+    private <T> T createApi(Class<T> clazz) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl(BASE_URL)
                 .client(okHttpClient)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
@@ -89,7 +89,7 @@ public class RetrofitUtils {
                         @Override
                         public List<Cookie> loadForRequest(HttpUrl url) {
                             List<Cookie> cookies = cookieStore.get(url.host());
-                            return cookies == null ? new ArrayList<Cookie>() : cookies;
+                            return cookies == null ? new ArrayList<>() : cookies;
                         }
                     })
                     .retryOnConnectionFailure(true)

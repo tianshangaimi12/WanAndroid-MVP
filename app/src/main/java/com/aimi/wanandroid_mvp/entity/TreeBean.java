@@ -20,7 +20,7 @@ public class TreeBean implements Parcelable {
         return children;
     }
 
-    public void setChildren(List<TreeBean> children) {
+    private void setChildren(List<TreeBean> children) {
         this.children = children;
     }
 
@@ -28,7 +28,7 @@ public class TreeBean implements Parcelable {
         return courseId;
     }
 
-    public void setCourseId(int courseId) {
+    private void setCourseId(int courseId) {
         this.courseId = courseId;
     }
 
@@ -52,7 +52,7 @@ public class TreeBean implements Parcelable {
         return order;
     }
 
-    public void setOrder(int order) {
+    private void setOrder(int order) {
         this.order = order;
     }
 

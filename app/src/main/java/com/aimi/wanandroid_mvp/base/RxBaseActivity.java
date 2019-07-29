@@ -10,7 +10,7 @@ import butterknife.Unbinder;
 
 public abstract class RxBaseActivity<T extends IBasePresenter> extends RxAppCompatActivity implements IBaseView {
     private Unbinder binder;
-    public T presenter;
+    protected T presenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

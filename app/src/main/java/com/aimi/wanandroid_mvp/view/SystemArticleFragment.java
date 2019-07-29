@@ -105,11 +105,6 @@ public class SystemArticleFragment extends RxBaseFragment<SystemArticlePresenter
     }
 
     @Override
-    public void addArticlesError() {
-
-    }
-
-    @Override
     public void showToast(String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }

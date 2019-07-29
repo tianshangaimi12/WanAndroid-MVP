@@ -31,7 +31,7 @@ public class NaviTitleAdapter extends RecyclerView.Adapter<NaviTitleAdapter.Titl
         this.onItemClickListener = onItemClickListener;
     }
 
-    public static interface OnItemClickListener {
+    public interface OnItemClickListener {
         void onClick(int position);
     }
 

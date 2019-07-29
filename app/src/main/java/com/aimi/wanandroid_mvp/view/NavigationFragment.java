@@ -123,7 +123,7 @@ public class NavigationFragment extends RxBaseFragment<NavigationPresenter> impl
         }
     }
 
-    public void setSelect(int position) {
+    private void setSelect(int position) {
         for (int i = 0; i < mArticleEntities.size(); i++) {
             ArticleEntity entity = mArticleEntities.get(i);
             if (i == position) {

@@ -8,7 +8,6 @@ import com.trello.rxlifecycle.components.support.RxFragment;
 public interface SystemArticleContract {
     interface View extends IBaseView{
         void addArticles(ArticleEntity articleEntity);
-        void addArticlesError();
     }
 
     interface Presenter extends IBasePresenter{

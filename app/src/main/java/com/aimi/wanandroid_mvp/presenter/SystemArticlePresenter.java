@@ -28,12 +28,10 @@ public class SystemArticlePresenter implements SystemArticleContract.Presenter{
                     if (articleEntityBaseEntity.getErrorCode() == 0){
                         view.addArticles(articleEntityBaseEntity.getData());
                     } else {
-                        view.addArticlesError();
                         view.showToast(articleEntityBaseEntity.getErrorMsg());
                     }
                 }, throwable -> {
                     view.hideLoading();
-                    view.addArticlesError();
                     view.showToast(R.string.load_failed);
                 });
     }

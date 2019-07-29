@@ -44,7 +44,7 @@ public class ProjectFragment extends RxBaseFragment<ProjectFragmentPresenter> im
         presenter.getTitle(this);
     }
 
-    public void initRecyclerView(){
+    private void initRecyclerView(){
         LinearLayoutManager lmHorizontal = new LinearLayoutManager(getActivity());
         lmHorizontal.setOrientation(LinearLayoutManager.HORIZONTAL);
         mProjectEntities = new ArrayList<>();
