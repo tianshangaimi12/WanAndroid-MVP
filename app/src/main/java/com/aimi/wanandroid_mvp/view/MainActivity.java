@@ -54,9 +54,7 @@ public class MainActivity extends RxBaseActivity {
         mToolbar.setTitle("");
         mTvTitle.setText(R.string.menu_first_page);
         setSupportActionBar(mToolbar);
-        mToolbar.setNavigationOnClickListener(v -> {
-            mDrawerLayout.openDrawer(Gravity.START);
-        });
+        mToolbar.setNavigationOnClickListener(v -> mDrawerLayout.openDrawer(Gravity.START));
     }
 
     @Override

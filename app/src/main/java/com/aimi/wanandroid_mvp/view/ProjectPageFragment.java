@@ -2,7 +2,6 @@ package com.aimi.wanandroid_mvp.view;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -12,10 +11,8 @@ import com.aimi.wanandroid_mvp.R;
 import com.aimi.wanandroid_mvp.adapter.ArticleAdapter;
 import com.aimi.wanandroid_mvp.base.RxBaseFragment;
 import com.aimi.wanandroid_mvp.contract.ProjectPageContract;
-import com.aimi.wanandroid_mvp.contract.SystemArticleContract;
 import com.aimi.wanandroid_mvp.entity.ArticleEntity;
 import com.aimi.wanandroid_mvp.presenter.ProjectPagePresenter;
-import com.aimi.wanandroid_mvp.presenter.SystemArticlePresenter;
 import com.aimi.wanandroid_mvp.utils.ConstantUtils;
 import com.airbnb.lottie.LottieAnimationView;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -24,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 public class ProjectPageFragment extends RxBaseFragment<ProjectPagePresenter> implements ProjectPageContract.View {
     @BindView(R.id.rv_project_page)

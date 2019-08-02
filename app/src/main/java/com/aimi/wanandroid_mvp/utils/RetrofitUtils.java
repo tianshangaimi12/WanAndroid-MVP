@@ -2,14 +2,11 @@ package com.aimi.wanandroid_mvp.utils;
 
 import android.app.Application;
 import android.content.Context;
-import android.util.Log;
 
 import com.aimi.wanandroid_mvp.network.FirstPageService;
 import com.aimi.wanandroid_mvp.network.NavigationService;
 import com.aimi.wanandroid_mvp.network.ProjectService;
 import com.aimi.wanandroid_mvp.network.TreeService;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.io.File;
 import java.util.ArrayList;

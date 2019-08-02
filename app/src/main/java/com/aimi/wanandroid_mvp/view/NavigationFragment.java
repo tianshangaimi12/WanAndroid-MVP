@@ -10,7 +10,6 @@ import android.widget.Toast;
 import com.aimi.wanandroid_mvp.R;
 import com.aimi.wanandroid_mvp.adapter.NaviDetailAdapter;
 import com.aimi.wanandroid_mvp.adapter.NaviTitleAdapter;
-import com.aimi.wanandroid_mvp.base.OnItemClickListener;
 import com.aimi.wanandroid_mvp.base.RxBaseFragment;
 import com.aimi.wanandroid_mvp.contract.NavigationContract;
 import com.aimi.wanandroid_mvp.entity.ArticleEntity;

@@ -6,7 +6,6 @@ import com.aimi.wanandroid_mvp.utils.RetrofitUtils;
 import com.trello.rxlifecycle.components.support.RxFragment;
 
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action0;
 import rx.schedulers.Schedulers;
 
 public class NavigationPresenter implements NavigationContract.Presenter {

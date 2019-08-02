@@ -2,7 +2,6 @@ package com.aimi.wanandroid_mvp.utils;
 
 import com.aimi.wanandroid_mvp.R;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

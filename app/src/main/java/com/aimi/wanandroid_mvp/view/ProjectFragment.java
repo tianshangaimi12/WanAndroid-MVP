@@ -6,12 +6,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.widget.Toast;
 
 import com.aimi.wanandroid_mvp.R;
 import com.aimi.wanandroid_mvp.adapter.ProjectTitleAdapter;
-import com.aimi.wanandroid_mvp.base.OnItemClickListener;
 import com.aimi.wanandroid_mvp.base.RxBaseFragment;
 import com.aimi.wanandroid_mvp.contract.ProjectContract;
 import com.aimi.wanandroid_mvp.entity.ProjectEntity;
