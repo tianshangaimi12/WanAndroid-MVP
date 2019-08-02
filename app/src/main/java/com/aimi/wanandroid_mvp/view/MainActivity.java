@@ -216,6 +216,9 @@ public class MainActivity extends RxBaseActivity {
                     case PAGE_NAVIGATION:
                         mNavigationFragment.scrollToFirst();
                         break;
+                    case PAGE_PROJECT:
+                        mProjectFragment.scrollToFirst();
+                        break;
                 }
                 break;
         }

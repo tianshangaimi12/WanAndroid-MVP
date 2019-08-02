@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.aimi.wanandroid_mvp.R;
+import com.aimi.wanandroid_mvp.base.OnItemClickListener;
 import com.aimi.wanandroid_mvp.entity.TreeBean;
 import com.aimi.wanandroid_mvp.utils.ConstantUtils;
 import com.aimi.wanandroid_mvp.utils.DisplayUtils;
@@ -60,7 +61,7 @@ public class KnowledgeTreeAdapter extends RecyclerView.Adapter<KnowledgeTreeAdap
         }
         treeHolder.itemView.setOnClickListener(v -> {
             if (onItemClickListener != null){
-                onItemClickListener.onClick(i);
+                onItemClickListener.onClick(v, i);
             }
         });
     }
@@ -80,9 +81,5 @@ public class KnowledgeTreeAdapter extends RecyclerView.Adapter<KnowledgeTreeAdap
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
-    }
-
-    public interface OnItemClickListener{
-        void onClick(int position);
     }
 }

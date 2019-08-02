@@ -43,7 +43,7 @@ public class KnowledgeFragment extends RxBaseFragment<KnowledgePresenter> implem
         mRecyclerView.setAdapter(mAdapter);
         presenter = new KnowledgePresenter(this);
         presenter.getKnowledgeTree(this);
-        mAdapter.setOnItemClickListener(position -> SystemArticleActivity.launch(getContext(), mTreeBeans.get(position)));
+        mAdapter.setOnItemClickListener((view, position) -> SystemArticleActivity.launch(getContext(), mTreeBeans.get(position)));
     }
 
     @Override
@@ -71,7 +71,7 @@ public class KnowledgeFragment extends RxBaseFragment<KnowledgePresenter> implem
 
     @Override
     public void hideLoading() {
-        if (mLoading != null){
+        if (mLoading != null) {
             mLoading.setVisibility(View.INVISIBLE);
             mLoading.cancelAnimation();
         }

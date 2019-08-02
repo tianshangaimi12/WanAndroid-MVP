@@ -18,8 +18,8 @@ public class SystemArticlePresenter implements SystemArticleContract.Presenter{
 
     @Override
     public void getArticles(RxFragment fragment, int page, int cid) {
-        RetrofitUtils.getTreeApi()
-                .getTreeNodeArticle(page, cid)
+        RetrofitUtils.getProjectApi()
+                .getProjectItems(page, cid)
                 .compose(fragment.bindToLifecycle())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

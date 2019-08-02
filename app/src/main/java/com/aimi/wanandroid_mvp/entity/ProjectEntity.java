@@ -4,6 +4,7 @@ public class ProjectEntity {
     private String name;
     private int parentChapterId;
     private int id;
+    private boolean select;
 
     public String getName() {
         return name;
@@ -27,5 +28,13 @@ public class ProjectEntity {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public boolean isSelect() {
+        return select;
+    }
+
+    public void setSelect(boolean select) {
+        this.select = select;
     }
 }

@@ -11,8 +11,10 @@ import android.widget.Toast;
 import com.aimi.wanandroid_mvp.R;
 import com.aimi.wanandroid_mvp.adapter.ArticleAdapter;
 import com.aimi.wanandroid_mvp.base.RxBaseFragment;
+import com.aimi.wanandroid_mvp.contract.ProjectPageContract;
 import com.aimi.wanandroid_mvp.contract.SystemArticleContract;
 import com.aimi.wanandroid_mvp.entity.ArticleEntity;
+import com.aimi.wanandroid_mvp.presenter.ProjectPagePresenter;
 import com.aimi.wanandroid_mvp.presenter.SystemArticlePresenter;
 import com.aimi.wanandroid_mvp.utils.ConstantUtils;
 import com.airbnb.lottie.LottieAnimationView;
@@ -24,13 +26,11 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class SystemArticleFragment extends RxBaseFragment<SystemArticlePresenter> implements SystemArticleContract.View {
-    @BindView(R.id.rv_system_article)
+public class ProjectPageFragment extends RxBaseFragment<ProjectPagePresenter> implements ProjectPageContract.View {
+    @BindView(R.id.rv_project_page)
     RecyclerView mRecyclerView;
-    @BindView(R.id.smart_refresh_layout_article)
+    @BindView(R.id.smart_refresh_layout_project)
     SmartRefreshLayout mRefreshLayout;
-    @BindView(R.id.float_btn_up)
-    FloatingActionButton mFloatingButton;
     @BindView(R.id.anim_loading)
     LottieAnimationView mLoading;
 
@@ -44,29 +44,29 @@ public class SystemArticleFragment extends RxBaseFragment<SystemArticlePresenter
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_system_article;
+        return R.layout.fragment_project_page;
     }
 
     @Override
     protected void initView(Bundle savedInstanceState) {
         Bundle bundle = getArguments();
         if (bundle != null) {
-            cid = bundle.getInt(ConstantUtils.EXREA_TREE_CID);
+            cid = bundle.getInt(ConstantUtils.EXTRA_PROJECT_CID);
         }
         mArticleBeans = new ArrayList<>();
         mAdapter = new ArticleAdapter(getContext(), mArticleBeans);
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
-        presenter = new SystemArticlePresenter(this);
+        presenter = new ProjectPagePresenter(this);
         mRefreshLayout.setOnRefreshListener(refreshLayout -> {
             mArticleBeans.clear();
             page = 0;
-            presenter.getArticles(SystemArticleFragment.this, page, cid);
+            presenter.getProjects(ProjectPageFragment.this, page, cid);
         });
         mRefreshLayout.setOnLoadMoreListener(refreshLayout -> {
             page++;
-            presenter.getArticles(SystemArticleFragment.this, page, cid);
+            presenter.getProjects(ProjectPageFragment.this, page, cid);
         });
     }
 
@@ -88,15 +88,15 @@ public class SystemArticleFragment extends RxBaseFragment<SystemArticlePresenter
 
     public void lazyLoad() {
         if (isViewCreated && isViewVisible) {
-            presenter.getArticles(this, page, cid);
+            presenter.getProjects(this, page, cid);
             isViewVisible = false;
             isViewCreated = false;
         }
     }
 
     @Override
-    public void addArticles(ArticleEntity articleEntity) {
-        mArticleBeans.addAll(articleEntity.getDatas());
+    public void addProjects(List<ArticleEntity.ArticleBean> datas) {
+        mArticleBeans.addAll(datas);
         mAdapter.notifyDataSetChanged();
         mRefreshLayout.finishRefresh(2000);
         mRefreshLayout.finishLoadMore(1000);
@@ -114,7 +114,6 @@ public class SystemArticleFragment extends RxBaseFragment<SystemArticlePresenter
 
     @Override
     public void showLoading() {
-        mFloatingButton.hide();
         mRefreshLayout.setVisibility(View.INVISIBLE);
         mLoading.setVisibility(View.VISIBLE);
         mLoading.setAnimation("stopwatch.json");
@@ -125,9 +124,6 @@ public class SystemArticleFragment extends RxBaseFragment<SystemArticlePresenter
     public void hideLoading() {
         if (mRefreshLayout != null){
             mRefreshLayout.setVisibility(View.VISIBLE);
-        }
-        if (mFloatingButton != null){
-            mFloatingButton.show();
         }
         if (mLoading != null){
             mLoading.setVisibility(View.INVISIBLE);
@@ -141,10 +137,8 @@ public class SystemArticleFragment extends RxBaseFragment<SystemArticlePresenter
         hideLoading();
     }
 
-    @OnClick(R.id.float_btn_up)
-    public void onClick(View view){
-        int position = mLayoutManager.findFirstCompletelyVisibleItemPosition();
-        if (position != 0){
+    public void scrollToFirst(){
+        if (mRecyclerView != null){
             mRecyclerView.smoothScrollToPosition(0);
         }
     }

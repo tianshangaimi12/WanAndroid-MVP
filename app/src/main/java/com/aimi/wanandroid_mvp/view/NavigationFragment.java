@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.aimi.wanandroid_mvp.R;
 import com.aimi.wanandroid_mvp.adapter.NaviDetailAdapter;
 import com.aimi.wanandroid_mvp.adapter.NaviTitleAdapter;
+import com.aimi.wanandroid_mvp.base.OnItemClickListener;
 import com.aimi.wanandroid_mvp.base.RxBaseFragment;
 import com.aimi.wanandroid_mvp.contract.NavigationContract;
 import com.aimi.wanandroid_mvp.entity.ArticleEntity;
@@ -62,7 +63,7 @@ public class NavigationFragment extends RxBaseFragment<NavigationPresenter> impl
         mRecyclerViewDetail.setLayoutManager(mDetailManager);
         mRecyclerViewTitle.setAdapter(mTitleAdapter);
         mRecyclerViewDetail.setAdapter(mDetailAdapter);
-        mTitleAdapter.setOnItemClickListener(position -> {
+        mTitleAdapter.setOnItemClickListener((view, position) -> {
             mTopSmoothScroller.setTargetPosition(position);
             mDetailManager.startSmoothScroll(mTopSmoothScroller);
             setSelect(position);

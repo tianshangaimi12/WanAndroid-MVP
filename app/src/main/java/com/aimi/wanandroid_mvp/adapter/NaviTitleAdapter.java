@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.aimi.wanandroid_mvp.R;
+import com.aimi.wanandroid_mvp.base.OnItemClickListener;
 import com.aimi.wanandroid_mvp.entity.ArticleEntity;
 
 import java.util.List;
@@ -31,10 +32,6 @@ public class NaviTitleAdapter extends RecyclerView.Adapter<NaviTitleAdapter.Titl
         this.onItemClickListener = onItemClickListener;
     }
 
-    public interface OnItemClickListener {
-        void onClick(int position);
-    }
-
     @NonNull
     @Override
     public TitleViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -48,7 +45,7 @@ public class NaviTitleAdapter extends RecyclerView.Adapter<NaviTitleAdapter.Titl
         titleViewHolder.mTvTitle.setText(entity.getName());
         titleViewHolder.mTvTitle.setOnClickListener(v -> {
             if (onItemClickListener != null) {
-                onItemClickListener.onClick(i);
+                onItemClickListener.onClick(v, i);
             }
         });
         if (entity.isSelect()){

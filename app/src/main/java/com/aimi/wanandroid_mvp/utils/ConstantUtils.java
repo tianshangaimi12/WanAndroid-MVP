@@ -13,4 +13,5 @@ public class ConstantUtils {
             R.color.colorSplash, R.color.colorBlue, R.color.colorDark, R.color.colorAccent, R.color.navigationYellow);
     public static final String EXTRA_TREE_BEAN = "tree_bean";
     public static final String EXREA_TREE_CID = "tree_cid";
+    public static final String EXTRA_PROJECT_CID = "project_cid";
 }

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.aimi.wanandroid_mvp.R;
+import com.aimi.wanandroid_mvp.base.OnItemClickListener;
 import com.aimi.wanandroid_mvp.entity.ProjectEntity;
 
 import java.util.List;
@@ -19,10 +20,15 @@ import butterknife.ButterKnife;
 public class ProjectTitleAdapter extends RecyclerView.Adapter<ProjectTitleAdapter.TitleHolder> {
     private Context context;
     private List<ProjectEntity> projectEntities;
+    private OnItemClickListener onItemClickListener;
 
     public ProjectTitleAdapter(Context context, List<ProjectEntity> projectEntities) {
         this.context = context;
         this.projectEntities = projectEntities;
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
     }
 
     @NonNull
@@ -36,6 +42,12 @@ public class ProjectTitleAdapter extends RecyclerView.Adapter<ProjectTitleAdapte
     public void onBindViewHolder(@NonNull TitleHolder titleHolder, int i) {
         ProjectEntity entity = projectEntities.get(i);
         titleHolder.mTitleNameTv.setText(entity.getName());
+        titleHolder.mTitleNameTv.setTextColor(context.getResources().getColor(entity.isSelect() ? R.color.colorPrimary : R.color.colorLightGray));
+        titleHolder.itemView.setOnClickListener(v -> {
+            if (onItemClickListener != null) {
+                onItemClickListener.onClick(v, i);
+            }
+        });
     }
 
     @Override

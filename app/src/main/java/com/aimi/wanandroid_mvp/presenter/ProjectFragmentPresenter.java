@@ -23,17 +23,14 @@ public class ProjectFragmentPresenter implements ProjectContract.Presenter {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe(() -> view.showLoading())
+                .doOnUnsubscribe(() -> view.hideLoading())
                 .subscribe(listBaseEntity -> {
-                    view.hideLoading();
                     if (listBaseEntity.getErrorCode() == 0) {
                         view.setTitle(listBaseEntity.getData());
                     } else {
                         view.showToast(listBaseEntity.getErrorMsg());
                     }
-                }, throwable -> {
-                    view.showToast(R.string.load_failed);
-                    view.hideLoading();
-                });
+                }, throwable -> view.showToast(R.string.load_failed));
     }
 
     @Override

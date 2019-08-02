@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ProjectFragment">
+    tools:context=".view.ProjectFragment"
+    android:orientation="vertical">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_project_title"
@@ -13,17 +13,14 @@
         android:layout_marginTop="@dimen/dp_5"
         android:layout_marginBottom="@dimen/dp_5" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_project_detail"
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/rv_project_title" />
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/colorPrimary" />
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/anim_loading"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager_project_pages"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:visibility="invisible"
-        app:lottie_loop="true" />
-</RelativeLayout>
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
