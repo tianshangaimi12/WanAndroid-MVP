@@ -15,4 +15,5 @@
     <string name="share_content">WanAndroid分享：%s，%s。</string>
     <string name="share_to_friends">分享给朋友</string>
     <string name="load_failed">加载失败</string>
+    <string name="useful_website">常用网址</string>
 </resources>

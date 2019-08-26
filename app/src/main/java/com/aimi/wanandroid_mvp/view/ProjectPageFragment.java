@@ -36,7 +36,6 @@ public class ProjectPageFragment extends RxBaseFragment<ProjectPagePresenter> im
     private boolean isViewVisible = false;
     private ArticleAdapter mAdapter;
     private List<ArticleEntity.ArticleBean> mArticleBeans;
-    private LinearLayoutManager mLayoutManager;
 
     @Override
     protected int getLayoutId() {
@@ -51,8 +50,8 @@ public class ProjectPageFragment extends RxBaseFragment<ProjectPagePresenter> im
         }
         mArticleBeans = new ArrayList<>();
         mAdapter = new ArticleAdapter(getContext(), mArticleBeans);
-        mLayoutManager = new LinearLayoutManager(getContext());
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setAdapter(mAdapter);
         presenter = new ProjectPagePresenter(this);
         mRefreshLayout.setOnRefreshListener(refreshLayout -> {

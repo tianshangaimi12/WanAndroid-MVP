@@ -3,6 +3,7 @@ package com.aimi.wanandroid_mvp.network;
 import com.aimi.wanandroid_mvp.entity.ArticleEntity;
 import com.aimi.wanandroid_mvp.entity.BannerBean;
 import com.aimi.wanandroid_mvp.entity.BaseEntity;
+import com.aimi.wanandroid_mvp.entity.WebsiteEntity;
 
 import java.util.List;
 
@@ -15,5 +16,8 @@ public interface FirstPageService {
     Observable<BaseEntity<List<BannerBean>>> getBanners();
 
     @GET("article/list/{page}/json")
-    Observable<BaseEntity<ArticleEntity>> getArticles(@Path("page")int page);
+    Observable<BaseEntity<ArticleEntity>> getArticles(@Path("page") int page);
+
+    @GET("friend/json")
+    Observable<BaseEntity<List<WebsiteEntity>>> getWebsites();
 }

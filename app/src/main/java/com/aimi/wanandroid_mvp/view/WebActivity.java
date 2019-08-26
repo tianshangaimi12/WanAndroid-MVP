@@ -21,6 +21,7 @@ import com.aimi.wanandroid_mvp.base.RxBaseActivity;
 import com.aimi.wanandroid_mvp.contract.WebContract;
 import com.aimi.wanandroid_mvp.entity.ArticleEntity;
 import com.aimi.wanandroid_mvp.entity.BannerBean;
+import com.aimi.wanandroid_mvp.entity.WebsiteEntity;
 import com.aimi.wanandroid_mvp.presenter.WebPresenter;
 import com.aimi.wanandroid_mvp.utils.ConstantUtils;
 
@@ -44,6 +45,7 @@ public class WebActivity extends RxBaseActivity<WebPresenter> implements WebCont
 
     private BannerBean mBannerBean;
     private ArticleEntity.ArticleBean mArticleBean;
+    private WebsiteEntity mWebsiteEntity;
 
     @Override
     protected int getLayoutId() {
@@ -55,8 +57,10 @@ public class WebActivity extends RxBaseActivity<WebPresenter> implements WebCont
         mToolbar.setTitle("");
         if (mBannerBean != null) {
             mTvTitle.setText(mBannerBean.getTitle());
-        } else {
+        } else if (mArticleBean != null) {
             mTvTitle.setText(mArticleBean.getTitle());
+        } else if (mWebsiteEntity != null) {
+            mTvTitle.setText(mWebsiteEntity.getName());
         }
         setSupportActionBar(mToolbar);
         mToolbar.setNavigationOnClickListener(v -> finish());
@@ -67,6 +71,7 @@ public class WebActivity extends RxBaseActivity<WebPresenter> implements WebCont
         Intent intent = getIntent();
         mBannerBean = (BannerBean) intent.getSerializableExtra(ConstantUtils.EXTRA_BANNER_BEAN);
         mArticleBean = (ArticleEntity.ArticleBean) intent.getSerializableExtra(ConstantUtils.EXTRA_ARTICLE_BEAN);
+        mWebsiteEntity = (WebsiteEntity) intent.getSerializableExtra(ConstantUtils.EXTRA_WEBSITE_BEAN);
         //webView全屏加载
         mWebView.getSettings().setUseWideViewPort(true);
         mWebView.getSettings().setLoadWithOverviewMode(true);
@@ -75,7 +80,7 @@ public class WebActivity extends RxBaseActivity<WebPresenter> implements WebCont
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
                 super.onProgressChanged(view, newProgress);
-                if (mProgressBar != null){
+                if (mProgressBar != null) {
                     if (newProgress == 100) {
                         mProgressBar.setVisibility(View.INVISIBLE);
                     } else {
@@ -87,7 +92,15 @@ public class WebActivity extends RxBaseActivity<WebPresenter> implements WebCont
         });
         mWebView.setWebViewClient(new WebViewClient());
         presenter = new WebPresenter(this);
-        presenter.loadUrl(mBannerBean != null ? mBannerBean.getUrl() : mArticleBean.getLink());
+        String url;
+        if (mBannerBean != null) {
+            url = mBannerBean.getUrl();
+        } else if (mArticleBean != null) {
+            url = mArticleBean.getLink();
+        } else {
+            url = mWebsiteEntity.getLink();
+        }
+        presenter.loadUrl(url);
     }
 
     @Override
@@ -100,10 +113,12 @@ public class WebActivity extends RxBaseActivity<WebPresenter> implements WebCont
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_share) {
             String url;
-            if (mBannerBean != null){
+            if (mBannerBean != null) {
                 url = String.format(getString(R.string.share_content), mBannerBean.getDesc(), mBannerBean.getUrl());
-            } else {
+            } else if (mArticleBean != null) {
                 url = String.format(getString(R.string.share_content), mArticleBean.getTitle(), mArticleBean.getLink());
+            } else {
+                url = String.format(getString(R.string.share_content), mWebsiteEntity.getName(), mWebsiteEntity.getLink());
             }
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.putExtra(Intent.EXTRA_TEXT, url);
@@ -114,7 +129,7 @@ public class WebActivity extends RxBaseActivity<WebPresenter> implements WebCont
     }
 
     @OnLongClick(R.id.tv_tool_bar_title)
-    public boolean onLongClick(View view){
+    public boolean onLongClick(View view) {
         mEdtUrl.setVisibility(View.VISIBLE);
         mBtnGo.setVisibility(View.VISIBLE);
         mTvTitle.setVisibility(View.GONE);
@@ -122,9 +137,9 @@ public class WebActivity extends RxBaseActivity<WebPresenter> implements WebCont
     }
 
     @OnClick(R.id.btn_url_go)
-    public void onClick(View view){
-        if(!TextUtils.isEmpty(mEdtUrl.getText())){
-            presenter.loadUrl("https://"+mEdtUrl.getText().toString());
+    public void onClick(View view) {
+        if (!TextUtils.isEmpty(mEdtUrl.getText())) {
+            presenter.loadUrl("https://" + mEdtUrl.getText().toString());
         } else {
             presenter.loadUrl("https://www.baidu.com");
         }
@@ -164,6 +179,12 @@ public class WebActivity extends RxBaseActivity<WebPresenter> implements WebCont
     public static void launch(Context context, ArticleEntity.ArticleBean articleBean) {
         Intent intent = new Intent(context, WebActivity.class);
         intent.putExtra(ConstantUtils.EXTRA_ARTICLE_BEAN, articleBean);
+        context.startActivity(intent);
+    }
+
+    public static void launch(Context context, WebsiteEntity websiteEntity) {
+        Intent intent = new Intent(context, WebActivity.class);
+        intent.putExtra(ConstantUtils.EXTRA_WEBSITE_BEAN, websiteEntity);
         context.startActivity(intent);
     }
 }

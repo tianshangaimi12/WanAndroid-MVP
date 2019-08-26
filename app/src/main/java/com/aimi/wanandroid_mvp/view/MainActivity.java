@@ -1,5 +1,6 @@
 package com.aimi.wanandroid_mvp.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -93,9 +94,9 @@ public class MainActivity extends RxBaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.menu_useful_sites:
-                showToast(String.valueOf(item.getItemId()));
+                startActivity(new Intent(this, UsefulWebsitesActivity.class));
                 break;
             case R.id.menu_search:
                 showToast(String.valueOf(item.getItemId()));
@@ -201,10 +202,10 @@ public class MainActivity extends RxBaseActivity {
     }
 
     @OnClick(R.id.float_btn_up)
-    public void onClick(View view){
-        switch (view.getId()){
+    public void onClick(View view) {
+        switch (view.getId()) {
             case R.id.float_btn_up:
-                switch (page){
+                switch (page) {
                     case PAGE_FIRST_PAGE:
                         mFirstPageFragment.scrollToFirst();
                         break;
