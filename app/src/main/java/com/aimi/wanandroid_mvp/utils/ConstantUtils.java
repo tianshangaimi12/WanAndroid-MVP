@@ -14,4 +14,5 @@ public class ConstantUtils {
     public static final String EXTRA_TREE_BEAN = "tree_bean";
     public static final String EXREA_TREE_CID = "tree_cid";
     public static final String EXTRA_PROJECT_CID = "project_cid";
+    public static final String EXTRA_SEARCH_WORD = "search_word";
 }

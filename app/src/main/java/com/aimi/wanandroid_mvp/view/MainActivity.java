@@ -99,7 +99,7 @@ public class MainActivity extends RxBaseActivity {
                 startActivity(new Intent(this, UsefulWebsitesActivity.class));
                 break;
             case R.id.menu_search:
-                showToast(String.valueOf(item.getItemId()));
+                startActivity(new Intent(this, SearchActivity.class));
                 break;
         }
         return true;

@@ -16,4 +16,12 @@
     <string name="share_to_friends">分享给朋友</string>
     <string name="load_failed">加载失败</string>
     <string name="useful_website">常用网址</string>
+    <string name="search_hot_keys">搜索热词</string>
+    <string name="search_history">搜索历史</string>
+    <string name="search_cn">搜索</string>
+    <string name="search_view_hint">请输入搜索内容</string>
+    <string name="delete_all_search_history">你确定删除所有搜索记录吗？</string>
+    <string name="ok">确定</string>
+    <string name="delete_failed">删除失败</string>
+    <string name="cancle">取消</string>
 </resources>
