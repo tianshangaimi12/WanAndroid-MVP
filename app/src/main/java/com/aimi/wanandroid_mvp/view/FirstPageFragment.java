@@ -1,10 +1,11 @@
 package com.aimi.wanandroid_mvp.view;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.aimi.wanandroid_mvp.R;
 import com.aimi.wanandroid_mvp.adapter.FirstPageAdapter;

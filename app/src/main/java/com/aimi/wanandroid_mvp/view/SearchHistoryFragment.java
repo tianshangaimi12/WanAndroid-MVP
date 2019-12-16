@@ -3,7 +3,6 @@ package com.aimi.wanandroid_mvp.view;
 import android.app.AlertDialog;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.internal.FlowLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +13,7 @@ import com.aimi.wanandroid_mvp.presenter.SearchHistoryPresenter;
 import com.aimi.wanandroid_mvp.utils.ConstantUtils;
 import com.aimi.wanandroid_mvp.utils.DisplayUtils;
 import com.aimi.wanandroid_mvp.utils.PreferenceUtils;
+import com.google.android.material.internal.FlowLayout;
 
 import java.util.List;
 import java.util.Random;

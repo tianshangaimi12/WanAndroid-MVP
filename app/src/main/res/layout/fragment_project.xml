@@ -6,7 +6,7 @@
     tools:context=".view.ProjectFragment"
     android:orientation="vertical">
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_project_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
         android:layout_height="@dimen/dp_1"
         android:background="@color/colorPrimary" />
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager_project_pages"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

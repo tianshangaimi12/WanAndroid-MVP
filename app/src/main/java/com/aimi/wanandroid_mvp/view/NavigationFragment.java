@@ -1,11 +1,12 @@
 package com.aimi.wanandroid_mvp.view;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.aimi.wanandroid_mvp.R;
 import com.aimi.wanandroid_mvp.adapter.NaviDetailAdapter;
@@ -22,7 +23,6 @@ import java.util.List;
 
 import butterknife.BindView;
 
-import static android.support.v7.widget.RecyclerView.SCROLL_STATE_IDLE;
 
 public class NavigationFragment extends RxBaseFragment<NavigationPresenter> implements NavigationContract.View {
     @BindView(R.id.rv_navigation_title)
@@ -73,7 +73,7 @@ public class NavigationFragment extends RxBaseFragment<NavigationPresenter> impl
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-                if (newState == SCROLL_STATE_IDLE) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
                     int height = mRecyclerViewTitle.getChildAt(0).getHeight();
                     int position = mDetailManager.findFirstVisibleItemPosition();
                     if (position >= prePosition) {

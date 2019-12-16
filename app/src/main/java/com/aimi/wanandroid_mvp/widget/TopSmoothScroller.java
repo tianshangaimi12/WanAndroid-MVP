@@ -1,7 +1,8 @@
 package com.aimi.wanandroid_mvp.widget;
 
 import android.content.Context;
-import android.support.v7.widget.LinearSmoothScroller;
+
+import androidx.recyclerview.widget.LinearSmoothScroller;
 
 public class TopSmoothScroller extends LinearSmoothScroller {
     public TopSmoothScroller(Context context) {

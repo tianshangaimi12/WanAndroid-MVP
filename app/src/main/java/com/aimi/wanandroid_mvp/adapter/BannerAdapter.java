@@ -1,12 +1,13 @@
 package com.aimi.wanandroid_mvp.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.PagerAdapter;
 
 import com.aimi.wanandroid_mvp.R;
 import com.aimi.wanandroid_mvp.entity.BannerBean;
