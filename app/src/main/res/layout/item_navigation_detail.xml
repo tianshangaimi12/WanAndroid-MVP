@@ -15,7 +15,7 @@
         android:textColor="@color/colorDark"
         android:textSize="@dimen/sp_15" />
 
-    <android.support.design.internal.FlowLayout
+    <com.google.android.material.internal.FlowLayout
         android:id="@+id/flow_layout_navigation_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

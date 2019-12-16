@@ -34,7 +34,7 @@
             android:layout_below="@id/tool_bar_main"
             android:layout_above="@id/bottom_navigation_view"/>
 
-        <android.support.design.widget.FloatingActionButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/float_btn_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
             android:layout_marginEnd="@dimen/dp_16"
             android:src="@mipmap/icon_up_arrow" />
 
-        <android.support.design.widget.BottomNavigationView
+        <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

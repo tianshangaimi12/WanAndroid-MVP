@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/sp_16" />
 
-        <android.support.design.internal.FlowLayout
+        <com.google.android.material.internal.FlowLayout
             android:id="@+id/flow_layout_tree_node"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
